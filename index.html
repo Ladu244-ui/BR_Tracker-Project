@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Reading Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Bible Reading Tracker</h1>
+
+
+        <!--Verse of the Day-->
+        <div id="verse-of-the-day">
+            <h2>Verse of the Day</h2>
+            <p id="verse-text">Loading...</p>
+        </div>
+
+        <!--Reading Tracker-->
+        <div id="reading-tracker">
+            <h2>Track Your Reading</h2>
+            <input type="text" id="book" placeholder="Book">
+            <input type="number" id="book" placeholder="Chapter">
+            <input type="number" id="book" placeholder="Verse">
+            <button id="log-Reading">Log Reading</button>
+            <p id="progress">Progress: 0%</p>
+        </div>
+
+        <!--Search Functionality-->
+        <div id="search">
+            <h2>Search The Bible</h2>
+            <input type="text" id="search-input" placeholder="Enter a verse or keyword">
+            <button id="search-button">Search</button>
+            <div id="search-results"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
