@@ -1,14 +1,24 @@
 // Fetch Verse of the Day
-async function fetchVerseOfTheDay() {
-    try {
-        const response = await fetch('https://bible-api.com/random');
-        const data = await response.json();
-        document.getElementById('verse-text').innerHTML = `${data.reference}:${data.text}`;
-    }catch(error) {
-        console.error('Error fetching verse:',error);
+import { scriptures } from './Feb_scriptures.js';
+
+function getTodaysScripture() {
+    const today = new Date();
+    const month = "Feb"; // Adjust if needed for dynamic month handling
+    const day = today.getDate();
+
+    if (scriptures[month] && scriptures[month][day]) {
+        const verseList = scriptures[month][day].join(", ");
+        document.getElementById('verse-text').innerHTML = `<strong>${month} ${day}:</strong> ${verseList}`;
+    } else {
+        document.getElementById('verse-text').innerHTML = "No scripture found for today.";
     }
-    
 }
+
+// Call the function on page load
+document.addEventListener("DOMContentLoaded", getTodaysScripture);
+
+
+
 //Initialize progress in local storage
 if(!localStorage.getItem('progress')) {
     localStorage.setItem('progress',JSON.stringify([]));
@@ -63,8 +73,7 @@ document.getElementById('search-button').addEventListener('click', async() => {
     }
 });
 
-//Fetch Verse of the Day
-fetchVerseOfTheDay();
+
 
 document.addEventListener('DOMContentLoaded', () => {
     const calenderE1 = document.getElementById('calender');
