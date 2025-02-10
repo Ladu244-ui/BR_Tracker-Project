@@ -13,9 +13,26 @@ function getTodaysScripture() {
         document.getElementById('verse-text').innerHTML = "No scripture found for today.";
     }
 }
+// Add event listener to button
+document.addEventListener('DOMContentLoaded', getTodaysScripture);
 
-// Call the function on page load
-document.addEventListener("DOMContentLoaded", getTodaysScripture);
+function ViewFullMonthSchedule() {
+    const month = "Feb"; // Adjust if needed for dynamic month handling
+    const schedule = scriptures[month];
+
+    if (schedule) {
+        const scheduleList = Object.entries(schedule).map(([day, verses]) => {
+            return `<strong>${month} ${day}:</strong> ${verses.join(", ")}`;
+        }).join("<br>");
+
+        document.getElementById('reading-plan').innerHTML = scheduleList;
+    } else {
+        document.getElementById('reading-plan').innerHTML = "No schedule found for this month.";
+    }
+}
+
+// Add event listener to button
+document.getElementById("get-reading").addEventListener("click", ViewFullMonthSchedule);
 
 
 
