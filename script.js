@@ -90,3 +90,40 @@ document.addEventListener('DOMContentLoaded', () => {
         calender.addEvent(event);
       }
     });
+
+    const apiKey = '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';
+   
+
+document.getElementById("chatgpt-button").addEventListener("click", async () => {
+    const question = document.getElementById("chatgpt-input").value.trim();
+    if (question) {
+        try {
+            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${apiKey}`
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: [{ role: "user", content: question }]
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error?.message || "Failed to fetch response");
+            }
+
+            const answer = data.choices?.[0]?.message?.content || "No response received.";
+            document.getElementById("chatgpt-response").innerText = answer;
+
+        } catch (error) {
+            console.error("Error fetching response:", error);
+            document.getElementById("chatgpt-response").innerText = "An error occurred. Please try again.";
+        }
+    } else {
+        alert("Please enter a question");
+    }
+});

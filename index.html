@@ -23,8 +23,8 @@
         <div id="reading-tracker">
             <h2>Track Your Reading</h2>
             <input type="text" id="book" placeholder="Book">
-            <input type="number" id="book" placeholder="Chapter">
-            <input type="number" id="book" placeholder="Verse">
+            <input type="number" id="chapter" placeholder="Chapter">
+            <input type="number" id="verse" placeholder="Verse">
             <button id="log-Reading">Log Reading</button>
             <p id="progress">Progress: 0%</p>
         </div>
@@ -35,6 +35,22 @@
             <input type="text" id="search-input" placeholder="Enter a verse or keyword">
             <button id="search-button">Search</button>
             <div id="search-results"></div>
+        </div>
+
+        <!--Google Search-->
+        <div id="google-search">
+            <h2>Search the Web for definitions or explanations</h2>
+            <script async src="https://cse.google.com/cse.js?cx=969b4787e8f324a70">
+            </script>
+            <div class="gcse-search"></div>
+        </div>
+
+        <!--ChatGPT-->
+        <div id="chatgpt">
+            <h2>Ask ChatGPT</h2>
+            <input type="text" id="chatgpt-input" placeholder="Ask a question">
+            <button id="chatgpt-button">Ask</button>
+            <p id="chatgpt-response">Response will appear here</p>
         </div>
 
         <!--Calender-->
