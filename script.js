@@ -1,78 +1,49 @@
-// Fetch Verse of the Day
-import { scriptures } from './Feb_scriptures.js';
+import { scriptures } from './scriptures.js';
 
+
+// Get today's scripture and display it
 function getTodaysScripture() {
-    const today = new Date();
-    const month = "Feb"; // Adjust if needed for dynamic month handling
-    const day = today.getDate();
+    const date = new Date();
+    const monthNames = Object.keys(scriptures);
+    const month = monthNames[date.getMonth()];
+    const day = date.getDate().toString();
+    
+    const verseText = document.getElementById('verse-text');
+    if (!verseText) return; // Ensure element exists
 
     if (scriptures[month] && scriptures[month][day]) {
         const verseList = scriptures[month][day].join(", ");
-        document.getElementById('verse-text').innerHTML = `<strong>${month} ${day}:</strong> ${verseList}`;
+        verseText.innerHTML = `<strong>${month.charAt(0).toUpperCase() + month.slice(1)} ${day}:</strong> ${verseList}`;
     } else {
-        document.getElementById('verse-text').innerHTML = "No scripture found for today.";
+        verseText.innerHTML = "No scripture found for today.";
     }
 }
-// Add event listener to button
-document.addEventListener('DOMContentLoaded', getTodaysScripture);
 
-function ViewFullMonthSchedule() {
-    const month = "Feb"; // Adjust if needed for dynamic month handling
-    const schedule = scriptures[month];
+
+// View full monthly reading schedule
+document.getElementById("get-reading")?.addEventListener("click", () => {
+    const selectedMonth = document.getElementById("month-select")?.value;  // Get the selected month from a dropdown
+    if (!selectedMonth) return; // If no month is selected, exit
+
+    const schedule = scriptures[selectedMonth];
+
+    const readingPlan = document.getElementById('reading-plan');
+    if (!readingPlan) return;
 
     if (schedule) {
-        const scheduleList = Object.entries(schedule).map(([day, verses]) => {
-            return `<strong>${month} ${day}:</strong> ${verses.join(", ")}`;
-        }).join("<br>");
-
-        document.getElementById('reading-plan').innerHTML = scheduleList;
+        readingPlan.innerHTML = Object.entries(schedule)
+            .map(([day, verses]) => `<strong>${selectedMonth} ${day}:</strong> ${verses.join(", ")}`)
+            .join("<br>");
     } else {
-        document.getElementById('reading-plan').innerHTML = "No schedule found for this month.";
-    }
-}
-
-// Add event listener to button
-document.getElementById("get-reading").addEventListener("click", ViewFullMonthSchedule);
-
-
-
-//Initialize progress in local storage
-if(!localStorage.getItem('progress')) {
-    localStorage.setItem('progress',JSON.stringify([]));
-}
-// Log Reading Progress
-document.getElementById('log-Reading').addEventListener('click', () => {
-    const book = document.getElementById('book').value;
-    const chapter = document.getElementById('chapter').value;
-    const verse = document.getElementById('verse').value;
-    //Update progress 
-    if(book && !isNaN(chapter) && !isNaN(verse)) {
-      alert(`Logged: ${book} ${chapter}:${verse}`);
-      const progress = JSON.parse(localStorage.getItem('progress'));
-        progress.push({book,chapter,verse});
-        localStorage.setItem('progress',JSON.stringify(progress));
-
-        //Update progress display
-       updateProgressDisplay();
-       alert(`Logged ${book} ${chapter}:${verse}`); 
-    }else{
-
-        alert('Please fill in all fields');
+        readingPlan.innerHTML = "No schedule found for this month.";
     }
 });
 
-//Function to Calculate and display progress
-function updateProgressDisplay() {
-    const progress = JSON.parse(localStorage.getItem('progress'));
-    const totalVerses = 31102; // Total verses in the Bible (approximate)
-    const uniqueVerses = new Set(progress.map((entry) => `${entry.book}-${entry.chapter}-${entry.verse}`)).size;
-    const percentage = ((uniqueVerses / totalVerses) * 100).toFixed(2);
-  
-    document.getElementById('progress').innerText = `Progress: ${percentage}%`;
-  }
-  
-  // Initialize progress display on page load
-  updateProgressDisplay();
+document.addEventListener('DOMContentLoaded', () => {
+    getTodaysScripture();
+    //updateProgressDisplay();
+});
+
 
 //search functionality
 document.getElementById('search-button').addEventListener('click', async() => {
@@ -91,65 +62,36 @@ document.getElementById('search-button').addEventListener('click', async() => {
 });
 
 
+//  ChatGPT API Integration
+/*const apiKey = 'YOUR_OPENAI_API_KEY'; // Replace with your actual API key
 
-document.addEventListener('DOMContentLoaded', () => {
-    const calenderE1 = document.getElementById('calender');
-    const calender =  new FullCalendar.Calendar(calenderE1, {
-        initialView: 'dayGridMonth',
-        events: []
-    });
-
-    calender.render();
-
-    // Load saved readings from localStorage
-    const progress = JSON.parse(localStorage.getItem('progress')) || [];
-    progress.forEach((entry) => {
-        addReadingToClaneder(entry.book, entry.chapter, entry.verse, new Date());
-      });
-
-      function addReadingToClaneder(book, chapter, verse, date) {
-        const event = {
-          title: `${book} ${chapter}:${verse}`,
-          start: date,
-          allDay: true, 
-        };
-        calender.addEvent(event);
-      }
-    });
-
-    const apiKey = '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';
-   
-
-document.getElementById("chatgpt-button").addEventListener("click", async () => {
-    const question = document.getElementById("chatgpt-input").value.trim();
-    if (question) {
-        try {
-            const response = await fetch("https://api.openai.com/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${apiKey}`
-                },
-                body: JSON.stringify({
-                    model: "gpt-3.5-turbo",
-                    messages: [{ role: "user", content: question }]
-                }),
-            });
-
-            const data = await response.json();
-
-            if (!response.ok) {
-                throw new Error(data.error?.message || "Failed to fetch response");
-            }
-
-            const answer = data.choices?.[0]?.message?.content || "No response received.";
-            document.getElementById("chatgpt-response").innerText = answer;
-
-        } catch (error) {
-            console.error("Error fetching response:", error);
-            document.getElementById("chatgpt-response").innerText = "An error occurred. Please try again.";
-        }
-    } else {
-        alert("Please enter a question");
+document.getElementById("chatgpt-button")?.addEventListener("click", async () => {
+    const question = document.getElementById("chatgpt-input")?.value.trim();
+    if (!question) {
+        alert("Please enter a question.");
+        return;
     }
-});
+
+    try {
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify({
+                model: "gpt-3.5-turbo",
+                messages: [{ role: "user", content: question }]
+            }),
+        });
+
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error?.message || "Failed to fetch response");
+
+        document.getElementById("chatgpt-response").innerText = data.choices?.[0]?.message?.content || "No response received.";
+    } catch (error) {
+        console.error("Error fetching response:", error);
+        document.getElementById("chatgpt-response").innerText = "An error occurred. Please try again.";
+    }
+});*/
+

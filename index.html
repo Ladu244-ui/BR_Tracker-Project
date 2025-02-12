@@ -6,9 +6,10 @@
     <title>Bible Reading Tracker</title>
     <link rel="stylesheet" href="styles.css">
    
-    <!-- FullCalendar CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css">
-<script type="module" src="script.js"></script>
+        <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
+        <!-- FullCalendar JS -->
+    
 </head>
 <body>
     <div class="container">
@@ -22,22 +23,25 @@
         </div>
 
         <!--Search for the full monthly Reading-->
-        <div id="monthly-reading">
-            <h2>Full Month Schedule</h2>
-            <input type="month" id="month" value="2025-02">
-            <button id="get-reading">Get Reading</button>
-            <p id="reading-plan">Reading Plan will appear here</p>
-
-        <!--Reading Tracker-->
-        <div id="reading-tracker">
-            <h2>Track Your Reading</h2>
-            <input type="text" id="book" placeholder="Book">
-            <input type="number" id="chapter" placeholder="Chapter">
-            <input type="number" id="verse" placeholder="Verse">
-            <button id="log-Reading">Log Reading</button>
-            <p id="progress">Progress: 0%</p>
-        </div>
-
+        <Label><strong>Full Month TimeTable:</strong> </Label>
+        <select id="month-select">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+        <button id="get-reading">View</button>
+        <div id="reading-plan"></div>
+        
+        
         <!--Search Functionality-->
         <div id="search">
             <h2>Search The Bible</h2>
@@ -45,7 +49,7 @@
             <button id="search-button">Search</button>
             <div id="search-results"></div>
         </div>
-
+        
         <!--Google Search-->
         <div id="google-search">
             <h2>Search the Web for definitions or explanations</h2>
@@ -53,20 +57,26 @@
             </script>
             <div class="gcse-search"></div>
         </div>
+        
+        <!--Reading Progress Calendar-->
+        <div id="reading-progress">
+            <h2>My Reading Progress Calendar</h2>
 
-        <!--ChatGPT-->
-        <div id="chatgpt">
-            <h2>Ask ChatGPT</h2>
-            <input type="text" id="chatgpt-input" placeholder="Ask a question">
-            <button id="chatgpt-button">Ask</button>
-            <p id="chatgpt-response">Response will appear here</p>
+            <!-- Input for logging books -->
+            <input type="text" id="book" placeholder="Enter book name">
+            <button id="log-Reading">Log Reading</button>
+        
+            <!-- Calendar -->
+            <div id="calendar"></div>
+            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
         </div>
 
-        <!--Calender-->
-        <div id="calender"></div>
+       
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
 
-    <script src="script.js"></script>
+
+   
+    <script type="module" src="script.js"></script>
+    <script src="int.calender.js"></script>
 </body>
 </html>

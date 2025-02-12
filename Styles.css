@@ -88,3 +88,9 @@ button:hover {
     border-radius: 5px;
     border: 1px solid #ddd;
 }
+
+#reading-progress {
+    margin: 20px auto;
+    float: jusitify;
+    
+}

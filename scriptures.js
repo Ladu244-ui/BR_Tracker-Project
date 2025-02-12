@@ -1,76 +1,11 @@
 export const scriptures = {
-  november: {
-    1: ["Luke 20:34-38 or Matthew 5:3-16", "Hebrews 12:1-2.22-24"],
-    2: ["Mark 1:1-20", "Job 1-2", "Song of Songs 1-2"],
-    3: ["Mark 1:21-45", "Job 3-5", "Song of Songs 3:1-5:1"],
-    4: ["Mark 2:1-22", "Job 6-7", "Song of Songs 5:2-6:12"],
-    5: ["Mark 2:23-3:12", "Job 8-10", "Song of Songs 7:1(G 6:13)-end"],
-    6: ["Mark 3:13-35", "Job 11-14", "Wisdom 1-2"],
-    7: ["Mark 4:1-34L", "Psalm 88;39;17", "Song of Songs 3-4"],
-    8: ["Mark 4:35-5:20", "Job 15-17", "Song of Songs 5:1-6:21"],
-    9: ["Mark 5:21-6:6", "Job 18-19", "Song of Songs 6:22-8:1"],
-    10: ["Mark 6:7-29", "Job 20-21", "Song of Songs 8:2-9:38"],
-    11: ["Mark 6:30-56", "Psalm 73;10;131", "Wisdom 10:1-11:14"],
-    12: ["Mark 7:1-23", "Job 22-24", "Wisdom 11:15-12:22"],
-    13: ["Mark 7:24-37s", "Job 25-28", "Wisdom 12:23-13:19"],
-    14: ["Mark 8:1-21", "Job 29-31", "Wisdom 14"],
-    15: ["Mark 8:22-9:1", "Psalm 112;41;42;43", "Wisdom 15:1-16:14"],
-    16: ["Mark 9:2-13s", "Job 32-34", "Wisdom 16:15-17:21"],
-    17: ["Mark 9:14-37", "Job 35-37", "Wisdom 18"],
-    18: ["Mark 9:38-10:12", "Psalm 6;13;26;38", "Wisdom 19"],
-    19: ["Mark 10:13-31", "Job 38:1-40:5", "Sirach Prolog + 1"],
-    20: ["Mark 10:32-52", "Job 40:6-end", "Sirach 2:1-3:29"],
-    21: ["Mark 11:1-19", "Psalm 30;40;121;138", "Sirach 3:30-5:8"],
-    22: ["Mark 11:20-12:12", "Psalm 31;71", "Sirach 5:9-6:37"],
-    23: ["Mark 12:13-34", "Proverbs 1", "Sirach 7"],
-    24: ["Mark 12:35-13:13", "Job 2:1-3:20", "Sirach 8:1-10:5"],
-    25: ["Mark 13:14-37", "Job 3:21-4:27", "Sirach 10:6-11:9"],
-    26: ["Mark 14:1-25", "Job 5:1-6:19", "Sirach 11:10-12:18"],
-    27: ["Mark 14:26-52", "Job 6:20-7:27", "Sirach 13:1-14:19"],
-    28: ["Mark 14:53-15:15", "Job 8-9", "Sirach 14:20-16:23"],
-    29: ["Mark 15:16-47", "Psalm 27;49;120;140", "Sirach 16:24-18:14"],
-    30: ["Mark 16", "Proverbs 10", "Sirach 18:15-19:30"]
-  },
-  december: {
-    1: ["Revelation 1", "Revelation 11", "Revelation 20:1-21:10"],
-    2: ["Revelation 2:1-17", "Revelation 12:1-13:6", "Revelation 21:11-22:18"],
-    3: ["Revelation 2:18-3:6", "Revelation 13:7-14:14", "Revelation 22:19-23:27"],
-    4: ["Revelation 3:7-33", "Revelation 14:15-15:15", "Sirach 24:1-25:12"],
-    5: ["Revelation 4", "Revelation 15:16-16:16", "Sirach 25:13-26:27"],
-    BIRTHDAY: ["Revelation 5", "Revelation 16:17-17:17", "Sirach 26:28-28:12"],
-    7: ["Revelation 6", "Revelation 17:18-18:24", "Sirach 28:13-29:28"],
-    MARIA: ["Revelation 7:1-8:5", "Revelation 19:1-20:7", "Sirach 30:1-31:24"],
-    9: ["Revelation 8:6-9:12", "Revelation 20:8-21:12", "Sirach 31:24-33:6"],
-    10: ["Revelation 9:13-10:11", "Revelation 21:13-22:16", "Sirach 33:7-34:17"],
-    11: ["Revelation 11:1-18", "Psalm 69:7", "Sirach 34:18-36:17"],
-    12: ["Revelation 11:19-12:17", "Proverbs 22:17-23:28", "Sirach 36:18-37:26"],
-    13: ["Revelation 13", "Proverbs 23:29-24:34", "Sirach 37:27-38:34"],
-    14: ["Revelation 14:1-13", "Psalm 35:5", "Sirach 39"],
-    15: ["Revelation 14:14-15:8", "Proverbs 25", "Sirach 40:1-41:4"],
-    16: ["Revelation 16", "Proverbs 26", "Sirach 41:5-42:14"],
-    17: ["Revelation 17", "Proverbs 27", "Sirach 42:15-43:33"],
-    18: ["Revelation 18:1-20", "Proverbs 28", "Sirach 44:1-45:5"],
-    19: ["Revelation 18:21-19:10", "Proverbs 29", "Sirach 45:6-46:10"],
-    20: ["Revelation 19:11-20:6", "Psalm 109;70;45", "Sirach 46:11-47:25"],
-    21: ["Revelation 20:7-21:8", "Proverbs 30", "Sirach 48-49"],
-    22: ["Revelation 21:9-22:5", "Psalm 46;48;87;125;147", "Sirach 50"],
-    23: ["Revelation 22:6-21", "Proverbs 31", "Sirach 51"],
-    HOLY_NIGHT: ["Luke 2:1-21", "Philippians 2:5-11", "Psalm 130;93;2;110;150"],
-    CHRISTMAS: ["Matthew 1:18-2:12", "Titus 2:11-3:7"],
-    26: ["John 1:1-28", "Psalm 104;148;8", "Ecclesiastes 1-2"],
-    27: ["John 1:29-51", "Genesis 1:1-2:4", "Genesis 3:1-4:16"],
-    28: ["John 2", "Genesis 2:4-3:24", "Genesis 4:17-6:12"],
-    29: ["John 3:1-21", "Genesis 4:1-6:4", "Genesis 7:1-8:9"],
-    30: ["John 3:22-4:3", "Genesis 6:5-8:22", "Genesis 8:10-10:7"],
-    31: ["John 4:4-42", "Genesis 9:1-11:9", "Genesis 10:8-end"]
-  },
-  january: {
+  January: {
     1: ["Luke 1:46-55", "Isaiah 55:6-13"],
     2: ["Luke 4:43-5:18", "Psalms 33;65;67;47", "1 Chronicles 1:1-5:26"],
     3: ["Luke 5:19-47", "Genesis 11:10-12:20", "1 Chronicles 5:27-9:34"],
     4: ["John 6:1-21", "Genesis 13-14", "1 Chronicles 9:35-11:9"],
     5: ["John 6:22-35", "Genesis 15-16", "1 Chronicles 11:10-12:23"],
-    EPIPHANY: ["John 6:35-59", "Genesis 17:1-18:15"],
+    6: ["John 6:35-59", "Genesis 17:1-18:15"],
     7: ["John 6:60-7:14-36", "Genesis 18:16-19:29", "1 Chronicles 16:24-14:17"],
     8: ["John 7:14-36", "Genesis 19:30-20:18", "1 Chronicles 15:1-16:6"],
     9: ["John 7:37-8:11", "Genesis 21", "1 Chronicles 16:7-43"],
@@ -89,7 +24,7 @@ export const scriptures = {
     22: ["John 15:1-17", "Genesis 34", "2 Chronicles 9"],
     23: ["John 15:18-16:15", "Genesis 35", "2 Chronicles 10-11"],
     24: ["John 16:16-35", "Genesis 36", "2 Chronicles 12-13"],
-    PUAL_Christian_Unity: ["John 17", "Ephesians 4:1-7.11-16", "Ezekiel 37:15-28"],
+    25: ["John 17", "Ephesians 4:1-7.11-16", "Ezekiel 37:15-28"],
     26: ["John 18:1-27", "Genesis 37", "2 Chronicles 12-13"],
     27: ["John 18:28-19:16", "Genesis 38", "2 Chronicles 17:1-19:3"],
     28: ["John 19:17-42", "Genesis 39-40", "2 Chronicles 19:4-20:37"],
@@ -97,7 +32,7 @@ export const scriptures = {
     30: ["John 20:19-31", "Genesis 41:53-42:38", "2 Chronicles 22:10-23:21"],
     31: ["John 21", "Genesis 43:1-44:13", "2 Chronicles 24"]
   },
-  feb: {
+  February: {
     1: ["Romans 1:1-17", "Genesis 44:14-45:28", "2 Chronicles 25"],
     2: ["Romans 1:18-32", "Genesis 46:1-47:12", "2 Chronicles 26-27"],
     3: ["Romans 2:1-16", "Genesis 47:13-48:22", "2 Chronicles 28"],
@@ -105,7 +40,7 @@ export const scriptures = {
     5: ["Romans 3:9-31", "Genesis 49:28-end", "2 Chronicles 30:1-31:1"],
     6: ["Romans 4", "Psalms 25;111;142(Joseph);146", "2 Chronicles 31:2-21"],
     7: ["Romans 5", "Psalms 105;124;129", "2 Chronicles 32"],
-    "J/Bakhita": ["Romans 6", "Exodus 1:1-2:15", "2 Chronicles 33"],
+    8: ["Romans 6", "Exodus 1:1-2:15", "2 Chronicles 33"],
     9: ["Romans 7", "Exodus 2:16-3:22", "2 Chronicles 34"],
     10: ["Romans 8:1-17", "Exodus 4", "2 Chronicles 35"],
     11: ["Romans 8:18-39", "Exodus 5:1-6:13", "2 Chronicles 36"],
@@ -128,7 +63,7 @@ export const scriptures = {
     28: ["Hebrews 9:23-10:18", "(Exodus 25-27L)", "Isaiah 7:10-8:22"],
     29: ["1 John 1:5 - 2:17", "Psalm 86"]
   },
-  march: {
+  March: {
     1: ["Hebrews 10:19-39", "Exodus 28:1-29:37", "Isaiah 8:23-10:19"],
     2: ["Hebrews 11:1-22", "Exodus 29:38-31:18", "Isaiah 10:20-13:1"],
     3: ["Hebrews 11:23-12:4", "Exodus 32", "Isaiah 13:1-14:27"],
@@ -161,7 +96,7 @@ export const scriptures = {
     30: ["Luke 11:14-36", "Leviticus 25:8-55", "Isaiah 61-62"],
     31: ["Luke 11:37-12:12", "Leviticus 26", "Isaiah 63-64"]
   },
-  april: {
+  April: {
     1: ["Luke 12:13-34", "Numbers 27", "Isaiah 65"],
     2: ["Luke 12:34-53", "Psalm 119:49-119", "Isaiah 66"],
     3: ["Mark 10:35-45", "1 Corinthians 3:11-16 or 9:19-27"],
@@ -193,7 +128,7 @@ export const scriptures = {
     29: ["Acts 3:1-4:4", "Numbers 28:1-29:11", "Habakkuk 1:1-2:14"],
     30: ["Acts 4:5-31", "Numbers 29:12-30:17", "Habakkuk 2:15-end"]
   },
-  may:{
+  May:{
     1 : ["Acts 4:32-5:16", "Numbers 31", "Jeremiah 1:1-2:19"],
     2 : ["Acts 5:17-42", "Numbers 32", "Jeremiah 2:20-3:18"],
     3 : ["Acts 6", "Numbers 33:1-49", "Jeremiah 3:19-4:31"],
@@ -227,7 +162,7 @@ export const scriptures = {
     31 : ["Acts 21:18-36", "Deuteronomy 24:5-25:10", "Jeremiah 39:11-40:16"]
 
   },
-  june : {
+  June : {
     1: ["Acts 21:37-22:21", "Deuteronomy 25:11-26:12", "Jeremiah 41:1-42:6"],
     2: ["Acts 22:22-23:11", "Deuteronomy 27:1-28:14", "Jeremiah 42:7-43:13"],
     3: ["Acts 23:12-35", "Deuteronomy 28:15-44", "Jeremiah 44-45:1"],
@@ -260,7 +195,7 @@ export const scriptures = {
     30: ["2 Timothy 1", "Joshua 24", "Ezekiel 11:14-12:28"]
 
   },
-  july : {
+  July : {
     1: ["2 Timothy 2:1-21", "Ps 9;59;92", "Ezekiel 13:1-14:11"],
     2: ["2 Timothy 2:22-3:17", "Ps 77;97;144;149", "Ezekiel 14:12-16:22"],
     3: ["2 Timothy 4", "Judges 1", "Ezekiel 16:23-63"],
@@ -362,7 +297,7 @@ export const scriptures = {
 
     
   },
-  october: {
+  October: {
     1: ["1 Corinthians 14:1-19","1 Kings 18","1 Maccabees 3:1-37"],
     2: ["1 Corinthians 14:20-40","1 Kings 19","1 Maccabees 3:38-4:25"],
     3: ["1 Corinthians 15:1-28","1 Kings 20","1 Maccabees 4:26-61"],
@@ -395,5 +330,71 @@ export const scriptures = {
     30: ["Ephesians 5","Ps 79;102;137","1 Maccabees 15:1-36"],
     31: ["Ephesians 6","Ps 89;126","1 Maccabees 15:37-end"]
 
+  },
+  November: {
+    1: ["Luke 20:34-38 or Matthew 5:3-16", "Hebrews 12:1-2.22-24"],
+    2: ["Mark 1:1-20", "Job 1-2", "Song of Songs 1-2"],
+    3: ["Mark 1:21-45", "Job 3-5", "Song of Songs 3:1-5:1"],
+    4: ["Mark 2:1-22", "Job 6-7", "Song of Songs 5:2-6:12"],
+    5: ["Mark 2:23-3:12", "Job 8-10", "Song of Songs 7:1(G 6:13)-end"],
+    6: ["Mark 3:13-35", "Job 11-14", "Wisdom 1-2"],
+    7: ["Mark 4:1-34L", "Psalm 88;39;17", "Song of Songs 3-4"],
+    8: ["Mark 4:35-5:20", "Job 15-17", "Song of Songs 5:1-6:21"],
+    9: ["Mark 5:21-6:6", "Job 18-19", "Song of Songs 6:22-8:1"],
+    10: ["Mark 6:7-29", "Job 20-21", "Song of Songs 8:2-9:38"],
+    11: ["Mark 6:30-56", "Psalm 73;10;131", "Wisdom 10:1-11:14"],
+    12: ["Mark 7:1-23", "Job 22-24", "Wisdom 11:15-12:22"],
+    13: ["Mark 7:24-37s", "Job 25-28", "Wisdom 12:23-13:19"],
+    14: ["Mark 8:1-21", "Job 29-31", "Wisdom 14"],
+    15: ["Mark 8:22-9:1", "Psalm 112;41;42;43", "Wisdom 15:1-16:14"],
+    16: ["Mark 9:2-13s", "Job 32-34", "Wisdom 16:15-17:21"],
+    17: ["Mark 9:14-37", "Job 35-37", "Wisdom 18"],
+    18: ["Mark 9:38-10:12", "Psalm 6;13;26;38", "Wisdom 19"],
+    19: ["Mark 10:13-31", "Job 38:1-40:5", "Sirach Prolog + 1"],
+    20: ["Mark 10:32-52", "Job 40:6-end", "Sirach 2:1-3:29"],
+    21: ["Mark 11:1-19", "Psalm 30;40;121;138", "Sirach 3:30-5:8"],
+    22: ["Mark 11:20-12:12", "Psalm 31;71", "Sirach 5:9-6:37"],
+    23: ["Mark 12:13-34", "Proverbs 1", "Sirach 7"],
+    24: ["Mark 12:35-13:13", "Job 2:1-3:20", "Sirach 8:1-10:5"],
+    25: ["Mark 13:14-37", "Job 3:21-4:27", "Sirach 10:6-11:9"],
+    26: ["Mark 14:1-25", "Job 5:1-6:19", "Sirach 11:10-12:18"],
+    27: ["Mark 14:26-52", "Job 6:20-7:27", "Sirach 13:1-14:19"],
+    28: ["Mark 14:53-15:15", "Job 8-9", "Sirach 14:20-16:23"],
+    29: ["Mark 15:16-47", "Psalm 27;49;120;140", "Sirach 16:24-18:14"],
+    30: ["Mark 16", "Proverbs 10", "Sirach 18:15-19:30"]
+  },
+  December: {
+    1: ["Revelation 1", "Revelation 11", "Revelation 20:1-21:10"],
+    2: ["Revelation 2:1-17", "Revelation 12:1-13:6", "Revelation 21:11-22:18"],
+    3: ["Revelation 2:18-3:6", "Revelation 13:7-14:14", "Revelation 22:19-23:27"],
+    4: ["Revelation 3:7-33", "Revelation 14:15-15:15", "Sirach 24:1-25:12"],
+    5: ["Revelation 4", "Revelation 15:16-16:16", "Sirach 25:13-26:27"],
+    6: ["Revelation 5", "Revelation 16:17-17:17", "Sirach 26:28-28:12"],
+    7: ["Revelation 6", "Revelation 17:18-18:24", "Sirach 28:13-29:28"],
+    8: ["Revelation 7:1-8:5", "Revelation 19:1-20:7", "Sirach 30:1-31:24"],
+    9: ["Revelation 8:6-9:12", "Revelation 20:8-21:12", "Sirach 31:24-33:6"],
+    10: ["Revelation 9:13-10:11", "Revelation 21:13-22:16", "Sirach 33:7-34:17"],
+    11: ["Revelation 11:1-18", "Psalm 69:7", "Sirach 34:18-36:17"],
+    12: ["Revelation 11:19-12:17", "Proverbs 22:17-23:28", "Sirach 36:18-37:26"],
+    13: ["Revelation 13", "Proverbs 23:29-24:34", "Sirach 37:27-38:34"],
+    14: ["Revelation 14:1-13", "Psalm 35:5", "Sirach 39"],
+    15: ["Revelation 14:14-15:8", "Proverbs 25", "Sirach 40:1-41:4"],
+    16: ["Revelation 16", "Proverbs 26", "Sirach 41:5-42:14"],
+    17: ["Revelation 17", "Proverbs 27", "Sirach 42:15-43:33"],
+    18: ["Revelation 18:1-20", "Proverbs 28", "Sirach 44:1-45:5"],
+    19: ["Revelation 18:21-19:10", "Proverbs 29", "Sirach 45:6-46:10"],
+    20: ["Revelation 19:11-20:6", "Psalm 109;70;45", "Sirach 46:11-47:25"],
+    21: ["Revelation 20:7-21:8", "Proverbs 30", "Sirach 48-49"],
+    22: ["Revelation 21:9-22:5", "Psalm 46;48;87;125;147", "Sirach 50"],
+    23: ["Revelation 22:6-21", "Proverbs 31", "Sirach 51"],
+    24: ["Luke 2:1-21", "Philippians 2:5-11", "Psalm 130;93;2;110;150"],
+    25: ["Matthew 1:18-2:12", "Titus 2:11-3:7"],
+    26: ["John 1:1-28", "Psalm 104;148;8", "Ecclesiastes 1-2"],
+    27: ["John 1:29-51", "Genesis 1:1-2:4", "Genesis 3:1-4:16"],
+    28: ["John 2", "Genesis 2:4-3:24", "Genesis 4:17-6:12"],
+    29: ["John 3:1-21", "Genesis 4:1-6:4", "Genesis 7:1-8:9"],
+    30: ["John 3:22-4:3", "Genesis 6:5-8:22", "Genesis 8:10-10:7"],
+    31: ["John 4:4-42", "Genesis 9:1-11:9", "Genesis 10:8-end"]
   }
 };
+  
