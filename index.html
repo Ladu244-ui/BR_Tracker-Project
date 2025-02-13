@@ -1,82 +1,188 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bible Reading Tracker</title>
-    <link rel="stylesheet" href="styles.css">
-   
-        <!-- FullCalendar CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
-        <!-- FullCalendar JS -->
-    
-</head>
-<body>
-    <div class="container">
-        <h1>Bible Reading Tracker</h1>
+     <head> 
+        <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <title>Bible Reading Tracker</title> 
+        <link rel="stylesheet" href="styles.css"> 
+              <!-- FullCalendar CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/lucide@latest"></script>
+     </head>
+     <body> 
+        <div class="app-container">
+         <!-- Background Elements --> 
+            <div class="background">
+                 <div class="pattern-sacred"></div> 
+                 <div class="gradient-radial"></div> 
+                 <div class="floating-orb orb-1"></div> 
+                 <div class="floating-orb orb-2"></div> 
+                 <div class="floating-orb orb-3"></div> 
+                 <div class="parallax-container"> 
+                    <div class="parallax-layer-1"></div>
+                    <div class="parallax-layer-2"></div> 
+                 </div> 
+            </div> 
 
+            <!-- Header --> 
+            <header class="header"> 
+                <div class="header-content"> 
+                    <div class="logo-container"> 
+                        <div class="ping-animation"></div> 
+                        <i data-lucide="bible" class="icon-bible"></i> 
+                    </div> 
+                    <h1>Bible Reading Tracker</h1> 
+                </div> 
+                <div class="header-border"></div> 
+            </header> 
 
-        <!--Verse of the Day-->
-        <div id="verse-of-the-day">
-            <h2>Today's Scriptures</h2>
-            <p id="verse-text">Loading...</p>
-        </div>
-
-        <!--Search for the full monthly Reading-->
-        <Label><strong>Full Month TimeTable:</strong> </Label>
-        <select id="month-select">
-            <option value="January">January</option>
-            <option value="February">February</option>
-            <option value="March">March</option>
-            <option value="April">April</option>
-            <option value="May">May</option>
-            <option value="June">June</option>
-            <option value="July">July</option>
-            <option value="August">August</option>
-            <option value="September">September</option>
-            <option value="October">October</option>
-            <option value="November">November</option>
-            <option value="December">December</option>
-        </select>
-        <button id="get-reading">View</button>
-        <div id="reading-plan"></div>
-        
-        
-        <!--Search Functionality-->
-        <div id="search">
-            <h2>Search The Bible</h2>
-            <input type="text" id="search-input" placeholder="Enter a verse or keyword">
-            <button id="search-button">Search</button>
-            <div id="search-results"></div>
-        </div>
-        
-        <!--Google Search-->
-        <div id="google-search">
-            <h2>Search the Web for definitions or explanations</h2>
-            <script async src="https://cse.google.com/cse.js?cx=969b4787e8f324a70">
-            </script>
-            <div class="gcse-search"></div>
-        </div>
-        
-        <!--Reading Progress Calendar-->
-        <div id="reading-progress">
-            <h2>My Reading Progress Calendar</h2>
-
-            <!-- Input for logging books -->
-            <input type="text" id="book" placeholder="Enter book name">
-            <button id="log-Reading">Log Reading</button>
-        
-            <!-- Calendar -->
-            <div id="calendar"></div>
-            <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
-        </div>
-
-       
-    </div>
-
-
-   
-    <script type="module" src="script.js"></script>
-    <script src="int.calender.js"></script>
-</body>
+             <!-- Main Content --> 
+            <main class="main-content"> 
+                <!-- Today's Scriptures --> 
+                 <div class="glass-container shine-effect"> 
+                    <h2 class="section-title"> 
+                        <div class="title-bar"></div> Today's Scriptures 
+                    </h2> 
+                    <div class="scripture-content"> 
+                        <i data-lucide="book-open" class="icon-book"></i> 
+                        <div id="verse-of-the-day"> 
+                            <p id="verse-text">Loading...</p>
+                        </div> 
+                    </div> 
+                 </div> 
+                 <!-- Time Table --> 
+                 <div class="glass-container shine-effect"> 
+                    <div class="timetable-header"> 
+                        <h2>Full Month TimeTable:</h2> 
+                        <select id="month-select"> 
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option> 
+                        </select> 
+                        <button class="btn-dark" id="get-reading">View</button> 
+                        <div id="reading-plan"></div>
+                    </div> 
+                 </div> 
+                 <!-- Column  --> 
+                 <div class="column"> 
+                     <!-- Search Section --> 
+                    <div class="glass-container shine-effect"> 
+                        <h2 class="section-title"> 
+                        <div class="title-bar"></div> Search The Bible 
+                        </h2> 
+                        <form class="search-form"> <!--??-->
+                            <div class="search-input-container">
+                                <input type="text" id="search-input" placeholder="Enter a verse or keyword"> 
+                                <button class = "btn-dark" id="search-button">Search</button>
+                                <div id="search-results"></div> 
+                            </div> 
+                        </form> 
+                    </div> 
+                      <!-- Web Definitions --> 
+                    <div class="glass-container shine-effect"> 
+                        <h2 class="section-title"> 
+                            <div class="title-bar"></div> 
+                            <span class="flex-center"> <i data-lucide="globe" class="icon-globe"></i> Web Definitions </span> 
+                        </h2> 
+                        <form class="search-form"> <!--??-->
+                            <script async src="https://cse.google.com/cse.js?cx=969b4787e8f324a70">
+                            </script>
+                            <div class="gcse-search"></div>
+                        </form> 
+                    </div>
+                    <!-- Reading progress Tracker --> 
+                    <div class="glass-container shine-effect"> 
+                        <div class="decorative-orb top-right"></div> 
+                        <div class="decorative-orb bottom-left"></div> 
+                        <h2 class="section-title"> 
+                            <div class="title-bar"></div> Log Your Reading 
+                        </h2> 
+                        <form class="reading-form"> 
+                            <div class="input-group" id="reading-progress" > 
+                                <label class="flex-between"> <span>Scripture Range</span> 
+                                    <button type="button" class="info-button" id="hint-button"> 
+                                        <i data-lucide="info" class="icon-info"></i> 
+                                    </button> 
+                                </label> 
+                                <div class="hint-popup" id="hint-popup"> 
+                                    Examples: 
+                                    <ul> 
+                                        <li>• John 3:16</li> 
+                                        <li>• Matthew 5:1-12</li> 
+                                        <li>• Psalms 23</li> 
+                                    </ul> </div> 
+                                    <input type="text" id="book" placeholder="e.g., John 3:16-21"> 
+                                </div> 
+                                <div class="info-box"> 
+                                    <i data-lucide="book-open" class="icon-book"></i> 
+                                    <span>Track your journey through scripture, one passage at a time.</span> 
+                                </div> 
+                                <button id="log-Reading" class="btn-primary"> 
+                                    <i data-lucide="book-open" class="icon-book"></i> 
+                                    <span>Log Reading</span> 
+                                </button> 
+                            </div>
+                        </form> 
+                        <div class="recent-readings"> 
+                            <h3>Recent Readings</h3> 
+                            <div class="reading-list"> 
+                                <div class="reading-item"> 
+                                    <div class="dot blue"></div> 
+                                    <span>John 3:16-21</span> 
+                                    <span class="time">2m ago</span> 
+                                </div> 
+                                <div class="reading-item"> 
+                                    <div class="dot light-blue"></div> 
+                                    <span>Psalms 23</span> 
+                                    <span class="time">1h ago</span> 
+                                </div> 
+                            </div> 
+                        </div> 
+                    </div> 
+                
+                    <!-- Progress Section --> 
+                    <div class="glass-container shine-effect"> 
+                        <h2 class="section-title"> 
+                            <div class="title-bar"></div> Reading Progress 
+                        </h2> 
+                        <div class="progress-container"> 
+                            <div class="progress-bar"> 
+                                <div class="progress-fill" id="progress-fill"></div> 
+                            </div> <div class="progress-labels"> 
+                                <span class="progress-text">25% Complete</span> 
+                                <span class="progress-goal">Goal: 100%</span> 
+                            </div> 
+                        </div> 
+                    </div> 
+                    <!-- Calendar Section --> 
+                    <div class="glass-container shine-effect"> 
+                        <div class="calendar-header"> 
+                            <h2 class="section-title"> 
+                                <div class="title-bar"></div> Reading Calendar 
+                            </h2> 
+                            <!--<div class="view-buttons"> 
+                                <button class="btn-dark">month</button> 
+                                <button class="btn-dark">week</button> 
+                                <button class="btn-dark">day</button> 
+                            </div> -->
+                        </div> 
+                        <div class="calendar" id="calendar"></div> 
+                         <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+                    </div> 
+                    
+                </div> 
+            </main> 
+        </div> 
+        <script type="module" src="script.js"></script>
+        <script src="int.calender.js"></script>
+        <script src="script2.js"></script>
+    </body> 
 </html>

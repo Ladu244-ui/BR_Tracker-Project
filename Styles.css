@@ -1,96 +1,136 @@
+/* Update background styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color:#333;
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 80%;
-    margin :0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-h1, h2 {
-    color: #444;
-}
-
-input,button {
-    padding: 10px;
-    margin: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    background-color: #333;
-    color: #fff;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #218838;
-}
-
-#verse-of-the-day #reading-tracker #search {
-   margin-bottom: 20px;
-}
-
-#calendar {
-   max-width: 900px;
-   margin:20px auto;
-   padding: 20px;
-   background-color: #fff;
-   border-radius: 10px;
-   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-#google-search {
-    margin: 20px 0;
-}
-
-.gsce-search {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#chatgpt {
-    margin: 20px 0;
-}
-
-#chatgpt-input {
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #2a6ece, #7c97f1,  #7ea0cc);
+    color: var(--gray-900);
+   
+  }
+  /* Update container styles */
+  .container {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
     width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 0 1rem;
+ 
+  }
+  /* Update background elements */
+  .background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+   
+    background: radial-gradient(circle at 50% 50%, rgba(97, 138, 228, 0.1), transparent 85%);
+  }
+  .pattern-sacred {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: 
+      linear-gradient(30deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+      linear-gradient(150deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+      linear-gradient(30deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+      linear-gradient(150deg, #ffffff 12%, transparent 12.5%, transparent 87%, #ffffff 87.5%, #ffffff),
+      linear-gradient(60deg, #ffffff77 25%, transparent 25.5%, transparent 75%, #ffffff77 75%, #ffffff77);
+    background-size: 40px 70px;
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0;
+  }
+  /* Update floating orbs */
+  .orb-1 {
+    background: rgba(67, 99, 138, 0.1);
+  }
+  .orb-2 {
+    background: rgba(132, 176, 233, 0.1);
+  }
+  .orb-3 {
+    background: rgba(169, 206, 248, 0.05);
+  }
+  /* Update main content */
+  .main-content {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  /* Update glass container */
+  .glass-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+  .glass-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(191, 219, 254, 0.5);
+  }
+  /* Update header */
+  .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header-content {
+    max-width: 90rem;
+    width: 100%;
+    float: center;
+    margin: 0 auto;
+    text-align: center;
+  }
+  /* Update responsive design */
+  @media (min-width: 1024px) {
+    .container {
+      padding: 0 2rem;
+    }
+    .main-content {
+      padding: 2rem;
+    }
+    .glass-container {
+      padding: 2.5rem;
+      margin: 0 auto;
+    }
+  }
+  @media (min-width: 1536px) {
+    .container {
+      padding: 0 4rem;
+    }
+  }
+  /* Update text colors for better contrast */
+  .text-gray-600 {
+    color: var(--gray-700);
+  }
+  .text-gray-700 {
+    color: var(--gray-800);
+  }
+  .glass-container.shine-effect {
+    width: 80%; /* Adjust width as needed */
+    margin: 20px auto; /* Centers the div horizontally */
+    padding: 32px; /* Keeps the existing padding */
+    background: rgba(255, 255, 255, 0.9); /* Adjust transparency if needed */
+    border-radius: 12px; /* Optional: Adds rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
+    text-align: center; /* Centers text inside */
+}
+.glass-container.shine-effect:hover {
+    transform: translateY(-4px); /* Adjust hover effect */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Adjust hover shadow */
+    border-color: rgba(191, 219, 254, 0.5); /* Adjust hover border color */
 }
 
-#chatgpt-button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #28a745;
-    cursor: pointer;
+.recent-readings {
+  text-align: center;
 }
 
-#chatgpt-button:hover {
-    background-color: #218838;
-}
 
-#chatgpt-response {
-    margin-top: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-#reading-progress {
-    margin: 20px auto;
-    float: jusitify;
-    
-}
