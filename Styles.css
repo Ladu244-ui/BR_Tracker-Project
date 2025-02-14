@@ -53,7 +53,7 @@ body {
     width: 100%;
     max-width: 90rem;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 0;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -70,7 +70,15 @@ body {
     position: relative;
     overflow: hidden;
     width: 100%;
+  
   }
+
+  .overflow {
+    max-height:150px; 
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
   .glass-container:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
@@ -94,14 +102,10 @@ body {
     .container {
       padding: 0 2rem;
     }
-    .main-content {
-      padding: 2rem;
-    }
-    .glass-container {
-      padding: 2.5rem;
-      margin: 0 auto;
-    }
+   
   }
+  
+  
   @media (min-width: 1536px) {
     .container {
       padding: 0 4rem;
@@ -115,22 +119,46 @@ body {
     color: var(--gray-800);
   }
   .glass-container.shine-effect {
-    width: 80%; /* Adjust width as needed */
-    margin: 20px auto; /* Centers the div horizontally */
-    padding: 32px; /* Keeps the existing padding */
-    background: rgba(255, 255, 255, 0.9); /* Adjust transparency if needed */
-    border-radius: 12px; /* Optional: Adds rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
-    text-align: center; /* Centers text inside */
+    width: 80%;
+    margin: 20px auto; 
+    padding: 32px; 
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
 }
 .glass-container.shine-effect:hover {
-    transform: translateY(-4px); /* Adjust hover effect */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Adjust hover shadow */
-    border-color: rgba(191, 219, 254, 0.5); /* Adjust hover border color */
+    transform: translateY(-4px); 
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(191, 219, 254, 0.5); 
 }
 
 .recent-readings {
   text-align: center;
 }
+
+.two-columns {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; 
+}
+
+.column {
+  width: 50%; 
+  padding: 2px;
+  text-align: center;
+  margin-right: 70px;
+  margin-left: 70px;
+}
+
+#right-column.column {
+  padding: 0px; 
+}
+
+
+
+
+
+
 
 
