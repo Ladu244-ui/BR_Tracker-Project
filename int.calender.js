@@ -40,7 +40,7 @@ function updateCalendar() {
     });
 }
 
-//Log reading progress
+//Log Reading Progress
 document.getElementById('log-Reading').addEventListener('click', () => {
     const bookInput = document.getElementById('book');
     if (!bookInput) return;
@@ -55,13 +55,9 @@ document.getElementById('log-Reading').addEventListener('click', () => {
 
     alert(`Logged: ${book} on ${today}`);
 
-    let progress = JSON.parse(localStorage.getItem('progress')) || {};
-    progress[today] = progress[today] || [];
+    // Insert reading progress into SQLite
+    db.run("INSERT INTO progress (date, book) VALUES (?, ?)", [today, book]);
 
-    if (!progress[today].some(entry => entry.book === book)) {
-        progress[today].push({ book });
-        localStorage.setItem('progress', JSON.stringify(progress));
-    }
-
-    updateCalendar();
+    updateCalendar(); // Now this should read from SQLite
 });
+

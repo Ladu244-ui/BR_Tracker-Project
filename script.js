@@ -94,4 +94,32 @@ document.getElementById("chatgpt-button")?.addEventListener("click", async () =>
         document.getElementById("chatgpt-response").innerText = "An error occurred. Please try again.";
     }
 });*/
+// Add hover effect to prevent container overlap
+document.querySelectorAll('.floating-container').forEach(container => {
+    container.addEventListener('mouseenter', () => {
+        container.style.zIndex = '50';
+    });
+    container.addEventListener('mouseleave', () => {
+        // Small delay to make the transition smoother
+        setTimeout(() => {
+            container.style.zIndex = '1';
+        }, 500);
+    });
+});
+// Add functionality to the View button
+document.querySelector('.timetable button').addEventListener('click', () => {
+    const month = document.querySelector('.timetable select').value;
+    console.log('Viewing:', month);
+});
+// Add functionality to the search
+document.querySelector('.search-container input').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        const searchTerm = e.target.value;
+        console.log('Searching for:', searchTerm);
+    }
+});
+document.querySelector('.search-container button').addEventListener('click', () => {
+    const searchTerm = document.querySelector('.search-container input').value;
+    console.log('Searching for:', searchTerm);
+});
 

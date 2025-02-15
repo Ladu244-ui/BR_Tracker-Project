@@ -229,7 +229,7 @@ export const scriptures = {
     31 : ["Matthew 17:24-18:14","1 Samuel 10:9-11:13","Daniel 2"]
   
   },
-  Ausgust : {
+  August : {
     1: ["Matthew 18:15-35","1 Samuel 11:14-12:25","Daniel 3:1-45(*-22)"],
     2: ["Matthew 19:1-26","1 Samuel 13:1-14:23","Daniel 3:46-97(*23-)"],
     3: ["Matthew 19:27-20:16","1 Samuel 14:24-52","Daniel 4"],
