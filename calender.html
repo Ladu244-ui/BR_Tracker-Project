@@ -1,0 +1,41 @@
+ <!DOCTYPE html>
+ <html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calendar</title>
+        <link rel="stylesheet" href="styles.css">
+        <!-- FullCalendar CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
+    </head>
+    
+    <body>
+       <div class="container">
+            <div class="content">
+                    <!-- Calendar Section -->
+                <div class="floating-container calendar">
+                    <div class="calendar-header">
+                        <h2 class="section-title">
+                            <div class="title-bar"></div> Reading Calendar
+                        </h2>
+                    </div>
+                    <div class="calendar" id="calendar"></div>
+                </div>
+            </div>
+            <a href="./index.html" target="_parent">back</a>
+       </div>
+    
+        <!-- FullCalendar JS -->
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var calendarEl = document.getElementById('calendar');
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: 'dayGridMonth'
+                });
+                calendar.render();
+            });
+        </script>
+    </body>
+    
+ </html>
