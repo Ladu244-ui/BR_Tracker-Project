@@ -1,20 +1,22 @@
 export const colors = {
-  primary: '#2a6ece',
-  secondary: '#7c97f1',
-  accent: '#7ea0cc',
-  background: '#f5f7fa',
+  primary: '#8b5cf6',
+  secondary: '#a78bfa',
+  accent: '#3b82f6',
+  background: '#000000',
   white: '#ffffff',
   text: {
-    primary: '#1f2937',
-    secondary: '#6b7280',
-    light: '#9ca3af',
+    primary: '#ffffff',
+    secondary: 'rgba(255, 255, 255, 0.8)',
+    light: 'rgba(255, 255, 255, 0.6)',
   },
-  border: '#e5e7eb',
-  success: '#10b981',
+  border: 'rgba(255, 255, 255, 0.2)',
+  success: '#8b5cf6',
   error: '#ef4444',
-  warning: '#f59e0b',
-  glass: 'rgba(255, 255, 255, 0.9)',
-  shadow: 'rgba(0, 0, 0, 0.1)',
+  warning: '#8b5cf6',
+  glass: 'rgba(255, 255, 255, 0.08)',
+  glassBorder: 'rgba(255, 255, 255, 0.2)',
+  glassHeavy: 'rgba(0, 0, 0, 0.4)',
+  shadow: 'rgba(0, 0, 0, 0.5)',
 };
 
 export const spacing = {
@@ -60,22 +62,50 @@ export const shadows = {
   small: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 2,
   },
   medium: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.15,
+    shadowOpacity: 0.4,
     shadowRadius: 8,
     elevation: 4,
   },
   large: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.5,
     shadowRadius: 16,
     elevation: 8,
+  },
+  glow: {
+    shadowColor: '#8b5cf6',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.6,
+    shadowRadius: 12,
+    elevation: 6,
+  },
+};
+
+export const glass = {
+  container: {
+    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.2)',
+    borderRadius: 16,
+  },
+  card: {
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.15)',
+    borderRadius: 12,
+  },
+  heavy: {
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.25)',
+    borderRadius: 16,
   },
 };

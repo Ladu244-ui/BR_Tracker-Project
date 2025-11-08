@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, typography, shadows } from '../theme';
+import { colors, spacing, typography, shadows, glass } from '../theme';
 import { storageUtils, formatTimeAgo } from '../utils/storage';
 
 export default function LogReadingScreen() {
@@ -92,6 +92,7 @@ export default function LogReadingScreen() {
             <TextInput
               style={styles.input}
               placeholder="e.g., John 3:16-21"
+              placeholderTextColor={colors.text.secondary}
               value={reading}
               onChangeText={setReading}
               onSubmitEditing={handleLogReading}
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   card: {
-    backgroundColor: colors.white,
+    ...glass.heavy,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
@@ -215,6 +216,8 @@ const styles = StyleSheet.create({
     padding: spacing.md,
     ...typography.body,
     backgroundColor: colors.background,
+    color: colors.text.primary,
+    placeholderTextColor: colors.text.secondary,
   },
   infoBox: {
     flexDirection: 'row',

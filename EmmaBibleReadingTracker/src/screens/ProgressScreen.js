@@ -8,7 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, typography, shadows } from '../theme';
+import { colors, spacing, typography, shadows, glass } from '../theme';
 import { storageUtils } from '../utils/storage';
 
 const { width } = Dimensions.get('window');
@@ -166,7 +166,7 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   card: {
-    backgroundColor: colors.white,
+    ...glass.heavy,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   statCard: {
-    backgroundColor: colors.white,
+    ...glass.card,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   actionsCard: {
-    backgroundColor: colors.white,
+    ...glass.card,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
@@ -294,7 +294,7 @@ const styles = StyleSheet.create({
     marginTop: spacing.xs,
   },
   milestoneCard: {
-    backgroundColor: colors.white,
+    ...glass.card,
     borderRadius: 16,
     padding: spacing.lg,
     borderWidth: 2,

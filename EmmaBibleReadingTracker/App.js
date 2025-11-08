@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // Import screens
 import HomeScreen from './src/screens/HomeScreen';
@@ -12,6 +13,7 @@ import SearchScreen from './src/screens/SearchScreen';
 import LogReadingScreen from './src/screens/LogReadingScreen';
 import CalendarScreen from './src/screens/CalendarScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
+import DebugScreen from './src/screens/DebugScreen';
 
 // Import theme
 import { colors } from './src/theme';
@@ -25,12 +27,13 @@ function HomeStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: colors.primary,
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        headerTransparent: false,
       }}>
       <Stack.Screen 
         name="TodaysScripture" 
@@ -52,12 +55,13 @@ function LogStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: colors.primary,
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
           fontWeight: 'bold',
         },
+        headerTransparent: false,
       }}>
       <Stack.Screen 
         name="LogReading" 
@@ -74,7 +78,7 @@ function ProgressStack() {
     <Stack.Navigator
       screenOptions={{
         headerStyle: {
-          backgroundColor: colors.primary,
+          backgroundColor: 'rgba(0, 0, 0, 0.9)',
         },
         headerTintColor: '#fff',
         headerTitleStyle: {
@@ -95,40 +99,56 @@ function ProgressStack() {
   );
 }
 
+function TabNavigator() {
+  const insets = useSafeAreaInsets();
+  
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused ? 'book' : 'book-outline';
+          } else if (route.name === 'Search') {
+            iconName = focused ? 'search' : 'search-outline';
+          } else if (route.name === 'Log') {
+            iconName = focused ? 'create' : 'create-outline';
+          } else if (route.name === 'Progress') {
+            iconName = focused ? 'stats-chart' : 'stats-chart-outline';
+          } else if (route.name === 'Debug') {
+            iconName = focused ? 'bug' : 'bug-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.5)',
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: 'rgba(0, 0, 0, 0.95)',
+          borderTopColor: 'rgba(139, 92, 246, 0.3)',
+          borderTopWidth: 1,
+          paddingBottom: insets.bottom,
+          height: 50 + insets.bottom,
+        },
+      })}>
+      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="Search" component={SearchScreen} />
+      <Tab.Screen name="Log" component={LogStack} />
+      <Tab.Screen name="Progress" component={ProgressStack} />
+      <Tab.Screen name="Debug" component={DebugScreen} />
+    </Tab.Navigator>
+  );
+}
+
 export default function App() {
   return (
-    <NavigationContainer>
-      <StatusBar barStyle="light-content" backgroundColor={colors.primary} />
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = focused ? 'book' : 'book-outline';
-            } else if (route.name === 'Search') {
-              iconName = focused ? 'search' : 'search-outline';
-            } else if (route.name === 'Log') {
-              iconName = focused ? 'create' : 'create-outline';
-            } else if (route.name === 'Progress') {
-              iconName = focused ? 'stats-chart' : 'stats-chart-outline';
-            }
-
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: colors.primary,
-          tabBarInactiveTintColor: 'gray',
-          headerShown: false,
-          tabBarStyle: {
-            paddingBottom: 5,
-            height: 60,
-          },
-        })}>
-        <Tab.Screen name="Home" component={HomeStack} />
-        <Tab.Screen name="Search" component={SearchScreen} />
-        <Tab.Screen name="Log" component={LogStack} />
-        <Tab.Screen name="Progress" component={ProgressStack} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <StatusBar barStyle="light-content" backgroundColor="#000000" />
+        <TabNavigator />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }

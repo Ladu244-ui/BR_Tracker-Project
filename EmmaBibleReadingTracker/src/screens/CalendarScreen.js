@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, typography, shadows } from '../theme';
+import { colors, spacing, typography, shadows, glass } from '../theme';
 import { storageUtils } from '../utils/storage';
 
 export default function CalendarScreen() {
@@ -60,7 +60,7 @@ export default function CalendarScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: insets.bottom + 20 }]}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Calendar Card */}
         <View style={styles.card}>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   card: {
-    backgroundColor: colors.white,
+    ...glass.heavy,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,

@@ -9,8 +9,9 @@ import {
   ActivityIndicator,
   Alert,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, typography, shadows } from '../theme';
+import { colors, spacing, typography, shadows, glass } from '../theme';
 
 export default function SearchScreen() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -43,10 +44,10 @@ export default function SearchScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container} edges={['top']}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Search Card */}
-        <View style={styles.card}>
+        <View style={[styles.card, glass.heavy]}>
           <View style={styles.header}>
             <Ionicons name="search" size={24} color={colors.primary} />
             <Text style={styles.title}>Search the Bible</Text>
@@ -133,7 +134,7 @@ export default function SearchScreen() {
           ))}
         </View>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -146,7 +147,6 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   card: {
-    backgroundColor: colors.white,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
@@ -173,7 +173,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: spacing.md,
     ...typography.body,
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    color: colors.text.primary,
   },
   searchButton: {
     backgroundColor: colors.primary,
@@ -212,7 +213,7 @@ const styles = StyleSheet.create({
     color: colors.text.secondary,
   },
   resultsCard: {
-    backgroundColor: colors.white,
+    ...glass.heavy,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,

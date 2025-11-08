@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, typography, shadows } from '../theme';
-import { getMonthScriptures, monthNames } from '../data/scriptures';
+import { colors, spacing, typography, shadows, glass } from '../theme';
+import { monthNames, getMonthScriptures } from '../data/scriptures';
 
 export default function ReadingPlanScreen() {
   const [selectedMonth, setSelectedMonth] = useState(monthNames[new Date().getMonth()]);
@@ -36,9 +36,11 @@ export default function ReadingPlanScreen() {
             <Picker
               selectedValue={selectedMonth}
               onValueChange={(itemValue) => setSelectedMonth(itemValue)}
-              style={styles.picker}>
+              style={styles.picker}
+              dropdownIconColor={colors.primary}
+              itemStyle={styles.pickerItem}>
               {monthNames.map((month) => (
-                <Picker.Item key={month} label={month} value={month} />
+                <Picker.Item key={month} label={month} value={month} color={colors.text.primary} />
               ))}
             </Picker>
           </View>
@@ -97,7 +99,7 @@ const styles = StyleSheet.create({
     padding: spacing.md,
   },
   card: {
-    backgroundColor: colors.white,
+    ...glass.heavy,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
@@ -118,10 +120,17 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     borderRadius: 8,
     marginBottom: spacing.md,
-    backgroundColor: colors.background,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    overflow: 'hidden',
   },
   picker: {
     height: 50,
+    color: colors.text.primary,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  },
+  pickerItem: {
+    backgroundColor: colors.background,
+    color: colors.text.primary,
   },
   button: {
     backgroundColor: colors.primary,
@@ -139,7 +148,7 @@ const styles = StyleSheet.create({
     marginLeft: spacing.sm,
   },
   scheduleCard: {
-    backgroundColor: colors.white,
+    ...glass.heavy,
     borderRadius: 16,
     padding: spacing.lg,
     ...shadows.medium,

@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons } from '@expo/vector-icons';
-import { colors, spacing, typography, shadows } from '../theme';
+import { colors, spacing, typography, shadows, glass } from '../theme';
 import { getTodaysScripture } from '../data/scriptures';
 
 const { width } = Dimensions.get('window');
@@ -23,12 +23,10 @@ export default function HomeScreen({ navigation }) {
   }, []);
 
   return (
-    <LinearGradient
-      colors={[colors.primary, colors.secondary, colors.accent]}
-      style={styles.container}>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Today's Scripture Card */}
-        <View style={styles.card}>
+        <View style={[styles.card, glass.heavy]}>
           <View style={styles.cardHeader}>
             <Ionicons name="book-outline" size={24} color={colors.primary} />
             <Text style={styles.cardTitle}>Today's Scripture</Text>
@@ -60,23 +58,19 @@ export default function HomeScreen({ navigation }) {
           <TouchableOpacity
             style={styles.actionCard}
             onPress={() => navigation.navigate('ReadingPlan')}>
-            <LinearGradient
-              colors={['#3b82f6', '#2563eb']}
-              style={styles.actionGradient}>
-              <Ionicons name="calendar-outline" size={32} color="#fff" />
+            <View style={[styles.actionGradient, glass.card]}>
+              <Ionicons name="calendar-outline" size={32} color={colors.primary} />
               <Text style={styles.actionText}>Monthly Plan</Text>
-            </LinearGradient>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.actionCard}
             onPress={() => navigation.navigate('Search', { screen: 'Search' })}>
-            <LinearGradient
-              colors={['#8b5cf6', '#7c3aed']}
-              style={styles.actionGradient}>
-              <Ionicons name="search-outline" size={32} color="#fff" />
+            <View style={[styles.actionGradient, glass.card]}>
+              <Ionicons name="search-outline" size={32} color={colors.secondary} />
               <Text style={styles.actionText}>Search Bible</Text>
-            </LinearGradient>
+            </View>
           </TouchableOpacity>
         </View>
 
@@ -84,51 +78,48 @@ export default function HomeScreen({ navigation }) {
           <TouchableOpacity
             style={styles.actionCard}
             onPress={() => navigation.navigate('Log', { screen: 'LogReading' })}>
-            <LinearGradient
-              colors={['#10b981', '#059669']}
-              style={styles.actionGradient}>
-              <Ionicons name="create-outline" size={32} color="#fff" />
+            <View style={[styles.actionGradient, glass.card]}>
+              <Ionicons name="create-outline" size={32} color={colors.success} />
               <Text style={styles.actionText}>Log Reading</Text>
-            </LinearGradient>
+            </View>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.actionCard}
             onPress={() => navigation.navigate('Progress', { screen: 'ProgressView' })}>
-            <LinearGradient
-              colors={['#f59e0b', '#d97706']}
-              style={styles.actionGradient}>
-              <Ionicons name="stats-chart-outline" size={32} color="#fff" />
+            <View style={[styles.actionGradient, glass.card]}>
+              <Ionicons name="stats-chart-outline" size={32} color={colors.warning} />
               <Text style={styles.actionText}>Progress</Text>
-            </LinearGradient>
+            </View>
           </TouchableOpacity>
         </View>
 
         {/* Inspirational Message */}
-        <View style={styles.inspirationCard}>
+        <View style={[styles.inspirationCard, glass.card]}>
           <Ionicons name="heart" size={20} color={colors.error} />
           <Text style={styles.inspirationText}>
             "Your word is a lamp to my feet and a light to my path." - Psalm 119:105
           </Text>
         </View>
       </ScrollView>
-    </LinearGradient>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: colors.background,
   },
   scrollContent: {
     padding: spacing.md,
   },
   card: {
-    backgroundColor: colors.glass,
     borderRadius: 16,
     padding: spacing.lg,
     marginBottom: spacing.md,
     ...shadows.medium,
+    overflow: 'hidden',
   },
   cardHeader: {
     flexDirection: 'row',
@@ -147,6 +138,9 @@ const styles = StyleSheet.create({
     ...typography.h2,
     color: colors.primary,
     marginBottom: spacing.md,
+    textShadowColor: colors.primary,
+    textShadowOffset: { width: 0, height: 0 },
+    textShadowRadius: 10,
   },
   versesContainer: {
     marginTop: spacing.sm,
@@ -185,7 +179,6 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.xs,
     borderRadius: 12,
     overflow: 'hidden',
-    ...shadows.small,
   },
   actionGradient: {
     padding: spacing.lg,
@@ -195,18 +188,16 @@ const styles = StyleSheet.create({
   },
   actionText: {
     ...typography.body,
-    color: '#fff',
+    color: colors.text.primary,
     fontWeight: '600',
     marginTop: spacing.sm,
     textAlign: 'center',
   },
   inspirationCard: {
-    backgroundColor: colors.white,
     borderRadius: 12,
     padding: spacing.lg,
     flexDirection: 'row',
     alignItems: 'center',
-    ...shadows.small,
   },
   inspirationText: {
     ...typography.small,
