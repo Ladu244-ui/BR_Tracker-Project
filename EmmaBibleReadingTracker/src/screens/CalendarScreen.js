@@ -60,7 +60,7 @@ export default function CalendarScreen() {
   };
 
   return (
-    <View style={[styles.container, { paddingBottom: insets.bottom + 20 }]}>
+    <View style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
         {/* Calendar Card */}
         <View style={styles.card}>
@@ -73,6 +73,8 @@ export default function CalendarScreen() {
             markedDates={markedDates}
             onDayPress={handleDayPress}
             theme={{
+              calendarBackground: 'transparent',
+              backgroundColor: 'transparent',
               todayTextColor: colors.primary,
               selectedDayBackgroundColor: colors.primary,
               selectedDayTextColor: '#ffffff',
@@ -82,6 +84,8 @@ export default function CalendarScreen() {
               textDayFontSize: 16,
               textMonthFontSize: 18,
               textDayHeaderFontSize: 14,
+              dayTextColor: colors.text.primary,
+              textDisabledColor: colors.text.light,
             }}
             style={styles.calendar}
           />
@@ -183,6 +187,7 @@ const styles = StyleSheet.create({
   },
   calendar: {
     borderRadius: 8,
+    backgroundColor: 'transparent',
   },
   legend: {
     marginTop: spacing.md,
