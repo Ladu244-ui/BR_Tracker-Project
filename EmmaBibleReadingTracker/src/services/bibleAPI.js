@@ -3,7 +3,7 @@ import * as Device from 'expo-device';
 import * as Notifications from 'expo-notifications';
 import { Platform } from 'react-native';
 
-const API_URL = 'http://192.168.101.106:3001'; // Replace with your server URL
+const API_URL = 'https://ayabackgroundservices-production-8b01.up.railway.app'; // Replace with your server URL
 
 class BibleAPIService {
   constructor() {

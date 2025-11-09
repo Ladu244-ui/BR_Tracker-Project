@@ -52,8 +52,8 @@ class BackgroundService {
      cron.schedule('0 0,6,12,18 * * *', () => {
      this.sendScheduledTimeTips();
     });
-  // Send time-based tips at 21:05 for testing
-    cron.schedule('21 15 * * *', () => {
+  // Test scripture reminders at 15:50 South African Time (13:50 UTC)
+    cron.schedule('01 14 * * *', () => {
       this.sendDailyScriptureReminders();
     });
 
