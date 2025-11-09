@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "147726834611",
+    "project_id": "ayaapp-a3b4e",
+    "storage_bucket": "ayaapp-a3b4e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147726834611:android:3a7560e88e3295461589c6",
+        "android_client_info": {
+          "package_name": "com.ladu244.EmmaBibleReadingTracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANqxbm8vgvXThtqDO5kNKyqet9lkbEp9A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { colors, spacing, typography, shadows, glass } from '../theme';
 import { storageUtils, formatTimeAgo } from '../utils/storage';
+import bibleAPI from '../services/bibleAPI';
 
 export default function LogReadingScreen() {
   const [reading, setReading] = useState('');
@@ -38,8 +39,12 @@ export default function LogReadingScreen() {
       date: today,
     };
 
+    // Save to local AsyncStorage
     const success = await storageUtils.saveProgress(today, readingData);
     const recentSuccess = await storageUtils.saveRecentReading(readingData);
+
+    // Sync to backend
+    await bibleAPI.saveReadingProgress(today, reading.trim());
 
     if (success && recentSuccess) {
       Alert.alert('Success', `Logged: ${reading} for today!`);

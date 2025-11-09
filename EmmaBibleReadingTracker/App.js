@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -14,6 +14,10 @@ import LogReadingScreen from './src/screens/LogReadingScreen';
 import CalendarScreen from './src/screens/CalendarScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
 import DebugScreen from './src/screens/DebugScreen';
+import SettingsScreen from './src/screens/SettingsScreen';
+
+// Import services
+import notificationService from './src/services/notificationService';
 
 // Import theme
 import { colors } from './src/theme';
@@ -116,6 +120,8 @@ function TabNavigator() {
             iconName = focused ? 'create' : 'create-outline';
           } else if (route.name === 'Progress') {
             iconName = focused ? 'stats-chart' : 'stats-chart-outline';
+          } else if (route.name === 'Settings') {
+            iconName = focused ? 'settings' : 'settings-outline';
           } else if (route.name === 'Debug') {
             iconName = focused ? 'bug' : 'bug-outline';
           }
@@ -137,12 +143,36 @@ function TabNavigator() {
       <Tab.Screen name="Search" component={SearchScreen} />
       <Tab.Screen name="Log" component={LogStack} />
       <Tab.Screen name="Progress" component={ProgressStack} />
+      <Tab.Screen 
+        name="Settings" 
+        component={SettingsScreen}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: 'rgba(0, 0, 0, 0.9)',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      />
       <Tab.Screen name="Debug" component={DebugScreen} />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
+  useEffect(() => {
+    // Initialize push notifications on app start
+    notificationService.initialize();
+
+    // Cleanup on unmount
+    return () => {
+      notificationService.cleanup();
+    };
+  }, []);
+
   return (
     <SafeAreaProvider>
       <NavigationContainer>
