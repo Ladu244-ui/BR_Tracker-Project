@@ -53,12 +53,13 @@ class BackgroundService {
      this.sendScheduledTimeTips();
     });
   // Send time-based tips at 21:05 for testing
-    /*cron.schedule('36 21 * * *', () => {
-      this.sendScheduledTimeTips();
-    });*/
+    cron.schedule('21 15 * * *', () => {
+      this.sendDailyScriptureReminders();
+    });
 
-    // Check for unread daily scriptures and send reminders at 8 AM
-    cron.schedule('0 8 * * *', () => {
+    // Check for unread daily scriptures and send reminders 4 times a day
+    // 8 AM, 12 PM, 4 PM, 8 PM (UTC times: 6:00, 10:00, 14:00, 18:00)
+    cron.schedule('0 6,10,14,18 * * *', () => {
       this.sendDailyScriptureReminders();
     });
 
@@ -186,35 +187,54 @@ class BackgroundService {
     try {
       console.log('📖 Checking for unread daily scriptures...');
       
-      // Get all users with active push tokens and reminder enabled
-      const { data: users, error } = await supabase
+      // Get all users with active push tokens
+      const { data: tokens, error: tokenError } = await supabase
         .from('bible_push_tokens')
-        .select(`
-          token,
-          user_id,
-          bible_reminder_settings!inner(reminder_enabled, reminder_time)
-        `)
-        .eq('is_active', true)
-        .eq('bible_reminder_settings.reminder_enabled', true);
+        .select('token, user_id')
+        .eq('is_active', true);
 
-      if (error || !users || users.length === 0) return;
+      if (tokenError) {
+        console.error('❌ Error fetching tokens:', tokenError);
+        return;
+      }
+
+      if (!tokens || tokens.length === 0) {
+        console.log('⚠️  No users with active push tokens');
+        return;
+      }
+
+      console.log(`✅ Found ${tokens.length} user(s) with active tokens`);
 
       const messages = [];
       const today = new Date().toISOString().split('T')[0];
 
-      for (const user of users) {
+      for (const tokenData of tokens) {
+        // Check reminder settings
+        const { data: settings } = await supabase
+          .from('bible_reminder_settings')
+          .select('reminder_enabled')
+          .eq('user_id', tokenData.user_id)
+          .single();
+
+        // Skip if reminders are disabled
+        if (settings && !settings.reminder_enabled) {
+          console.log(`⏭️  Skipping user ${tokenData.user_id} - reminders disabled`);
+          continue;
+        }
+
         // Check if user has read today's scripture
         const { data: progress } = await supabase
           .from('bible_reading_progress')
           .select('id')
-          .eq('user_id', user.user_id)
+          .eq('user_id', tokenData.user_id)
           .eq('date', today)
           .single();
 
         // If not read yet, send reminder
-        if (!progress && Expo.isExpoPushToken(user.token)) {
+        if (!progress && Expo.isExpoPushToken(tokenData.token)) {
+          console.log(`📤 Queuing reminder for user: ${tokenData.user_id}`);
           messages.push({
-            to: user.token,
+            to: tokenData.token,
             sound: 'default',
             title: '📖 Daily Scripture Reminder',
             body: "Don't forget to read today's scripture! Start your day with God's word.",

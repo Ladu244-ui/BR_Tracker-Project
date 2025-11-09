@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StatusBar } from 'react-native';
+import { StatusBar, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -42,12 +42,38 @@ function HomeStack() {
       <Stack.Screen 
         name="TodaysScripture" 
         component={HomeScreen}
-        options={{ title: "Today's Scripture" }}
+        options={({ navigation }) => ({
+          title: "Today's Scripture",
+          headerRight: () => (
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <TouchableOpacity 
+                onPress={() => navigation.navigate('Settings')}
+                style={{ marginRight: 15 }}>
+                <Ionicons name="settings-outline" size={24} color="#fff" />
+              </TouchableOpacity>
+              <TouchableOpacity 
+                onPress={() => navigation.navigate('Debug')}
+                style={{ marginRight: 15 }}>
+                <Ionicons name="bug-outline" size={24} color="#fff" />
+              </TouchableOpacity>
+            </View>
+          ),
+        })}
       />
       <Stack.Screen 
         name="ReadingPlan" 
         component={ReadingPlanScreen}
         options={{ title: 'Monthly Reading Plan' }}
+      />
+      <Stack.Screen 
+        name="Settings" 
+        component={SettingsScreen}
+        options={{ title: 'Settings' }}
+      />
+      <Stack.Screen 
+        name="Debug" 
+        component={DebugScreen}
+        options={{ title: 'Debug' }}
       />
     </Stack.Navigator>
   );
@@ -120,10 +146,6 @@ function TabNavigator() {
             iconName = focused ? 'create' : 'create-outline';
           } else if (route.name === 'Progress') {
             iconName = focused ? 'stats-chart' : 'stats-chart-outline';
-          } else if (route.name === 'Settings') {
-            iconName = focused ? 'settings' : 'settings-outline';
-          } else if (route.name === 'Debug') {
-            iconName = focused ? 'bug' : 'bug-outline';
           }
 
           return <Ionicons name={iconName} size={size} color={color} />;
@@ -143,21 +165,6 @@ function TabNavigator() {
       <Tab.Screen name="Search" component={SearchScreen} />
       <Tab.Screen name="Log" component={LogStack} />
       <Tab.Screen name="Progress" component={ProgressStack} />
-      <Tab.Screen 
-        name="Settings" 
-        component={SettingsScreen}
-        options={{
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: 'rgba(0, 0, 0, 0.9)',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
-        }}
-      />
-      <Tab.Screen name="Debug" component={DebugScreen} />
     </Tab.Navigator>
   );
 }

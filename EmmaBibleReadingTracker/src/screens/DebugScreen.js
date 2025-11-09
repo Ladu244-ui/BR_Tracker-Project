@@ -19,10 +19,19 @@ export default function DebugScreen() {
       const keys = await AsyncStorage.getAllKeys();
       const items = await AsyncStorage.multiGet(keys);
       
-      const data = items.map(([key, value]) => ({
-        key,
-        value: value ? JSON.parse(value) : null,
-      }));
+      const data = items.map(([key, value]) => {
+        let parsedValue;
+        try {
+          parsedValue = value ? JSON.parse(value) : null;
+        } catch (e) {
+          // If JSON parsing fails, store the raw value
+          parsedValue = value;
+        }
+        return {
+          key,
+          value: parsedValue,
+        };
+      });
       
       setStorageData(data);
     } catch (error) {

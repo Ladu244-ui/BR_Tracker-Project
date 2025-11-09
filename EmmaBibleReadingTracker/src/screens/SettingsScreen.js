@@ -10,7 +10,6 @@ import {
     View
 } from 'react-native';
 import bibleAPI from '../services/bibleAPI';
-import notificationService from '../services/notificationService';
 import { colors, glass, shadows, spacing, typography } from '../theme';
 
 export default function SettingsScreen() {
@@ -111,11 +110,6 @@ export default function SettingsScreen() {
     }
   };
 
-  const handleTestNotification = async () => {
-    await notificationService.sendTestNotification();
-    Alert.alert('Test Notification', 'A test notification will appear in 2 seconds');
-  };
-
   const formatTime = (date) => {
     return date.toLocaleTimeString('en-US', { 
       hour: 'numeric', 
@@ -205,25 +199,6 @@ export default function SettingsScreen() {
               <Ionicons name="chevron-forward" size={20} color={colors.text.light} />
             </TouchableOpacity>
           )}
-        </View>
-
-        {/* Test Notification Card */}
-        <View style={styles.card}>
-          <Text style={styles.sectionTitle}>Testing</Text>
-          
-          <TouchableOpacity 
-            style={styles.testButton}
-            onPress={handleTestNotification}>
-            <Ionicons name="notifications-outline" size={20} color={colors.primary} />
-            <Text style={styles.testButtonText}>Send Test Notification</Text>
-          </TouchableOpacity>
-
-          <View style={styles.infoBox}>
-            <Ionicons name="information-circle-outline" size={20} color={colors.primary} />
-            <Text style={styles.infoText}>
-              Test your notification settings. A notification will appear in 2 seconds.
-            </Text>
-          </View>
         </View>
 
         {/* Info Card */}
