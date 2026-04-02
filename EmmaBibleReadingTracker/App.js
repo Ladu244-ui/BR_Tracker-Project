@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { StatusBar, View, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -15,9 +15,10 @@ import CalendarScreen from './src/screens/CalendarScreen';
 import ProgressScreen from './src/screens/ProgressScreen';
 import DebugScreen from './src/screens/DebugScreen';
 import SettingsScreen from './src/screens/SettingsScreen';
+import WeeklyPlannerScreen from './src/components/WeeklyPlannerScreen';
 
 // Import services
-import notificationService from './src/services/notificationService';
+// import notificationService from './src/services/notificationService';
 
 // Import theme
 import { colors } from './src/theme';
@@ -144,6 +145,8 @@ function TabNavigator() {
             iconName = focused ? 'search' : 'search-outline';
           } else if (route.name === 'Log') {
             iconName = focused ? 'create' : 'create-outline';
+          } else if (route.name === 'Planner') {
+            iconName = focused ? 'calendar' : 'calendar-outline';
           } else if (route.name === 'Progress') {
             iconName = focused ? 'stats-chart' : 'stats-chart-outline';
           }
@@ -164,21 +167,23 @@ function TabNavigator() {
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Search" component={SearchScreen} />
       <Tab.Screen name="Log" component={LogStack} />
+      <Tab.Screen name="Planner" component={WeeklyPlannerScreen} options={{ title: 'Weekly Planner' }} />
       <Tab.Screen name="Progress" component={ProgressStack} />
     </Tab.Navigator>
   );
 }
 
 export default function App() {
-  useEffect(() => {
-    // Initialize push notifications on app start
-    notificationService.initialize();
+  // Notification service temporarily disabled
+  // useEffect(() => {
+  //   // Initialize push notifications on app start
+  //   notificationService.initialize();
 
-    // Cleanup on unmount
-    return () => {
-      notificationService.cleanup();
-    };
-  }, []);
+  //   // Cleanup on unmount
+  //   return () => {
+  //     notificationService.cleanup();
+  //   };
+  // }, []);
 
   return (
     <SafeAreaProvider>
