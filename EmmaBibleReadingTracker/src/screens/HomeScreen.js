@@ -19,7 +19,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'Office of Readings',
     subtitle: 'Matins',
-    icon: '🌙',
+    icon: 'moon-outline',
     startHour: 0,
     endHour: 5,
     time: 'Night or very early morning',
@@ -28,7 +28,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'Lauds',
     subtitle: 'Morning Prayer',
-    icon: '🌅',
+    icon: 'sunrise-outline',
     startHour: 5,
     endHour: 8,
     time: '5:00–8:00 AM',
@@ -38,7 +38,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'Terce',
     subtitle: 'Mid-morning Prayer',
-    icon: '☀️',
+    icon: 'sunny-outline',
     startHour: 8,
     endHour: 11,
     time: 'Around 9:00 AM',
@@ -47,7 +47,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'Sext',
     subtitle: 'Midday Prayer',
-    icon: '☀️',
+    icon: 'sunny',
     startHour: 11,
     endHour: 14,
     time: 'Around 12:00 PM',
@@ -56,7 +56,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'None',
     subtitle: 'Mid-afternoon Prayer',
-    icon: '🌤️',
+    icon: 'partly-sunny-outline',
     startHour: 14,
     endHour: 17,
     time: 'Around 3:00 PM',
@@ -65,7 +65,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'Vespers',
     subtitle: 'Evening Prayer',
-    icon: '🌇',
+    icon: 'sunset-outline',
     startHour: 17,
     endHour: 20,
     time: '5:00–7:00 PM',
@@ -75,7 +75,7 @@ const DIVINE_OFFICE_HOURS = [
   {
     name: 'Compline',
     subtitle: 'Night Prayer',
-    icon: '🌙',
+    icon: 'moon',
     startHour: 20,
     endHour: 24,
     time: 'Before going to bed (8:00–10:00 PM)',
@@ -147,7 +147,7 @@ export default function HomeScreen({ navigation }) {
         {/* Divine Office Prayer Card */}
         <View style={[styles.card, styles.divineOfficeCard, glass.heavy]}>
           <View style={styles.cardHeader}>
-            <Text style={styles.officeIcon}>{currentOffice.icon}</Text>
+            <Ionicons name={currentOffice.icon} size={24} color={colors.primary} />
             <Text style={styles.cardTitle}>Divine Office</Text>
             {currentOffice.isHinge && (
               <View style={styles.hingeBadge}>
@@ -327,10 +327,6 @@ const styles = StyleSheet.create({
   divineOfficeCard: {
     borderLeftWidth: 4,
     borderLeftColor: colors.primary,
-  },
-  officeIcon: {
-    fontSize: 24,
-    marginRight: spacing.xs,
   },
   hingeBadge: {
     backgroundColor: colors.warning + '33',

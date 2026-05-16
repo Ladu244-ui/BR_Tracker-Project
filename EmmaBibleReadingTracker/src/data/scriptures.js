@@ -405,7 +405,7 @@ export const getTodaysScripture = () => {
     return {
       month,
       day,
-      verses: scriptures[month][day],
+      verses: scriptures[month][day].slice(0, 2), // Only return first 2 verses
     };
   }
   
